@@ -50,7 +50,7 @@ func main() {
 	api.POST("/orders", order.Create)
 	api.GET("/orders/mine", order.MyOrders)
 
-	log.Printf("🚀 Server running on port %s", cfg.Port)
+	log.Printf("🚀 RUN %s", cfg.Port)
 	if err := r.Run(":" + cfg.Port); err != nil {
 		log.Fatal(err)
 	}
