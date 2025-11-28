@@ -1,13 +1,11 @@
-FROM golang:1.21-alpine
+FROM golang:1.25.4-alpine3.22
 
 WORKDIR /app
+COPY go.mod .
+COPY main.go .
 
-COPY go.mod go.sum ./
-RUN go mod download
+RUN go build -o simple-rest-api
 
-COPY . .
-
-RUN go build -o app .
-
-CMD ["./app"]
 EXPOSE 8080
+
+CMD ["./simple-rest-api"]
