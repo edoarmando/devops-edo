@@ -8,18 +8,29 @@ on:
 jobs:
   sample-ikan:
     runs-on: ubuntu-latest
-    steps:
-      - name: Git clone
-        uses: echo"git clone"
 
+    steps:
+      # Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Docker build
       - name: Docker build
-        run: echo "docker build"
+        run: docker build -t ikan-app:latest .
+
+      # Docker push (jika menggunakan Docker Hub)
+      # Pastikan sudah login dengan secrets DOCKER_USERNAME dan DOCKER_PASSWORD
+      - name: Docker login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Docker push
-        run: echo "docker push"
+        run: docker push ikan-app:latest
 
+      # Docker pull
       - name: Docker pull
-        run: echo "docker pull"
+        run: docker pull ikan-app:latest
 
+      # Docker run
       - name: Docker run
-        run: echo "docker run"
+        run: docker run --rm ikan-app:latest
+
