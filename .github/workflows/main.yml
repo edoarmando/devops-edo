@@ -1,1 +1,39 @@
+<<<<<<< HEAD
+isi file di branch lokalmu
+=======
+isi file di branch remote
+>>>>>>> 367e941
+<<<<<<< HEAD
 
+=======
+name: Echo Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  echo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Git clone (simulasi)
+        run: echo "git clone"
+
+      - name: Docker build (simulasi)
+        run: echo "docker build"
+
+      - name: Docker push (simulasi)
+        run: echo "docker push"
+
+      - name: Docker pull (simulasi)
+        run: echo "docker pull"
+
+      - name: Docker run (simulasi)
+        run: echo "docker run"
+>>>>>>> cad2b5c (Add working GitHub Action workflow)
