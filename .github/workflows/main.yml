@@ -1,29 +1,42 @@
-name: Flow for ikan automation
+name: Golang Docker CI/CD
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch: # bisa dijalankan manual
 
 jobs:
-  sample-ikan:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Set up Go (opsional, kalau mau build Go binary)
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+
+      # 3️⃣ Build Go binary (opsional)
+      - name: Build Go app
+        run: go build -v -o app ./...
+
+      # 4️⃣ Docker login ke Docker Hub
       - name: Docker login
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
+      # 5️⃣ Docker build
       - name: Docker build
-        run: docker build -t edoarmando/ikan:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/ikan:latest .
 
+      # 6️⃣ Docker push
       - name: Docker push
-        run: docker push edoarmando/ikan:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/ikan:latest
 
-      - name: Docker pull
-        run: docker pull edoarmando/ikan:latest
-
+      # 7️⃣ Docker run (opsional, test run)
       - name: Docker run
-        run: docker run --rm edoarmando/ikan:latest
+        run: docker run --rm ${{ secrets.DOCKER_USERNAME }}/ikan:latest
