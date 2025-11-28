@@ -10,26 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Docker login menggunakan secrets
       - name: Docker login
         run: echo "${{ 343127Ea. }}" | docker login -u "${{ edoarmando }}" --password-stdin
 
-      # 3️⃣ Docker build
       - name: Docker build
         run: docker build -t edoarmando/ikan:latest .
 
-      # 4️⃣ Docker push
       - name: Docker push
         run: docker push edoarmando/ikan:latest
 
-      # 5️⃣ Docker pull (opsional)
       - name: Docker pull
         run: docker pull edoarmando/ikan:latest
 
-      # 6️⃣ Docker run
       - name: Docker run
         run: docker run --rm edoarmando/ikan:latest
