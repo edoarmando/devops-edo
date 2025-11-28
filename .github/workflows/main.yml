@@ -8,27 +8,28 @@ on:
 jobs:
   sample-ikan:
     runs-on: ubuntu-latest
+
     steps:
-      # Checkout repository (opsional untuk dummy, tapi biasanya disertakan)
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Dummy Git clone
-      - name: Git clone (dummy)
-        run: echo "git clone https://github.com/edoarmando/devops-edo.git"
+      # 2️⃣ Docker login menggunakan secrets
+      - name: Docker login
+        run: echo "${{ 343127Ea. }}" | docker login -u "${{ edoarmando }}" --password-stdin
 
-      # Dummy Docker build
-      - name: Docker build (dummy)
-        run: echo "docker build -t ikan-app:latest ."
+      # 3️⃣ Docker build
+      - name: Docker build
+        run: docker build -t edoarmando/ikan:latest .
 
-      # Dummy Docker push
-      - name: Docker push (dummy)
-        run: echo "docker push ikan-app:latest"
+      # 4️⃣ Docker push
+      - name: Docker push
+        run: docker push edoarmando/ikan:latest
 
-      # Dummy Docker pull
-      - name: Docker pull (dummy)
-        run: echo "docker pull ikan-app:latest"
+      # 5️⃣ Docker pull (opsional)
+      - name: Docker pull
+        run: docker pull edoarmando/ikan:latest
 
-      # Dummy Docker run
-      - name: Docker run (dummy)
-        run: echo "docker run --rm ikan-app:latest"
+      # 6️⃣ Docker run
+      - name: Docker run
+        run: docker run --rm edoarmando/ikan:latest
