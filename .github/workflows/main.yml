@@ -8,23 +8,18 @@ on:
 jobs:
   sample-ikan:
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout repo
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Git clone
+        uses: echo"git clone"
 
-      # Docker build
       - name: Docker build
-        run: docker build 
+        run: echo "docker build"
 
       - name: Docker push
-        run: docker push 
+        run: echo "docker push"
 
-      # Docker pull
       - name: Docker pull
-        run: docker pull 
+        run: echo "docker pull"
 
-      # Docker run
       - name: Docker run
-        run: docker run 
+        run: echo "docker run"
