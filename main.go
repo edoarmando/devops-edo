@@ -34,7 +34,7 @@ func main() {
 </style>
 </head>
 <body>
-    <h1>INI AKSES VIA TUNNEL v2</h1>
+    <h1>INI AKSES VIA IKANN v2</h1>
 </body>
 </html>
         `)
