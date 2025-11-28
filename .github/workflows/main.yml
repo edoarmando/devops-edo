@@ -16,15 +16,15 @@ jobs:
 
       # Docker build
       - name: Docker build
-        run: docker build -t ikan-app:latest .
+        run: docker build 
 
       - name: Docker push
-        run: docker push ikan-app:latest
+        run: docker push 
 
       # Docker pull
       - name: Docker pull
-        run: docker pull ikan-app:latest
+        run: docker pull 
 
       # Docker run
       - name: Docker run
-        run: docker run --rm ikan-app:latest
+        run: docker run 
