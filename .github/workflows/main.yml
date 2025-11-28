@@ -33,7 +33,6 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-
           printf "Host deploy\n  HostName ${{ secrets.SSH_HOST }}\n  User ${{ secrets.SSH_USER }}\n  Port ${{ secrets.SSH_PORT }}\n  IdentityFile ~/.ssh/id_ed25519\n  StrictHostKeyChecking no\n" > ~/.ssh/config
 
       - name: Deploy to Server
@@ -48,6 +47,6 @@ jobs:
             echo '--- Removing old container ---' &&
             docker rm ikan || true &&
 
-            echo '--- Running new container ---' &&
+            echo '--- Running new container on port 9080 ---' &&
             docker run -d --name ikan -p 9080:8080 ${{ secrets.DOCKER_USERNAME }}/ikan:latest
           "
