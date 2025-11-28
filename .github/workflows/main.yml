@@ -49,5 +49,5 @@ jobs:
             docker rm ikan || true &&
 
             echo '--- Running new container ---' &&
-            docker run -d --name ikan -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/ikan:latest
+            docker run -d --name ikan -p 9080:8080 ${{ secrets.DOCKER_USERNAME }}/ikan:latest
           "
