@@ -23,7 +23,8 @@ jobs:
 
       # 3️⃣ Build Go binary (opsional)
       - name: Build Go app
-        run: go build -v -o app ./...
+        run: go build -v -o app main.go
+
 
       # 4️⃣ Docker login ke Docker Hub
       - name: Docker login
