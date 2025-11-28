@@ -1,30 +1,25 @@
-name: Echo Workflow
+name: Flow for ikan automation
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  echo-job:
+  sample-ikan:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Git clone
+        uses: echo"git clone"
 
-      - name: Git clone (simulasi)
-        run: echo "git clone"
-
-      - name: Docker build (simulasi)
+      - name: Docker build
         run: echo "docker build"
 
-      - name: Docker push (simulasi)
+      - name: Docker push
         run: echo "docker push"
 
-      - name: Docker pull (simulasi)
+      - name: Docker pull
         run: echo "docker pull"
 
-      - name: Docker run (simulasi)
+      - name: Docker run
         run: echo "docker run"
