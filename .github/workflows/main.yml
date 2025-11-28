@@ -9,17 +9,26 @@ jobs:
   sample-ikan:
     runs-on: ubuntu-latest
     steps:
-      - name: Git clone
-        uses: echo"git clone"
+      # Checkout repository (opsional untuk dummy, tapi biasanya disertakan)
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Docker build
-        run: echo "docker build"
+      # Dummy Git clone
+      - name: Git clone (dummy)
+        run: echo "git clone https://github.com/edoarmando/devops-edo.git"
 
-      - name: Docker push
-        run: echo "docker push"
+      # Dummy Docker build
+      - name: Docker build (dummy)
+        run: echo "docker build -t ikan-app:latest ."
 
-      - name: Docker pull
-        run: echo "docker pull"
+      # Dummy Docker push
+      - name: Docker push (dummy)
+        run: echo "docker push ikan-app:latest"
 
-      - name: Docker run
-        run: echo "docker run"
+      # Dummy Docker pull
+      - name: Docker pull (dummy)
+        run: echo "docker pull ikan-app:latest"
+
+      # Dummy Docker run
+      - name: Docker run (dummy)
+        run: echo "docker run --rm ikan-app:latest"
