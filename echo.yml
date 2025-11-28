@@ -11,17 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Git clone
-        uses: echo "git clone"
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Docker build
+      - name: Git clone 
+        run: echo "git clone"
+
+      - name: Docker build 
         run: echo "docker build"
 
-      - name: Docker push
+      - name: Docker push 
         run: echo "docker push"
 
-      - name: Docker pull
+      - name: Docker pull 
         run: echo "docker pull"
-        
-      - name: Docker run
-        run: echo "docker run"
+
+      - name: Docker run 
+        run: echo 'docker run'
