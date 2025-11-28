@@ -1,1 +1,27 @@
+name: Echo Workflow
 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  echo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone
+        uses: echo "git clone"
+
+      - name: Docker build
+        run: echo "docker build"
+
+      - name: Docker push
+        run: echo "docker push"
+
+      - name: Docker pull
+        run: echo "docker pull"
+        
+      - name: Docker run
+        run: echo "docker run"
