@@ -14,17 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Git clone 
+      - name: Git clone (simulasi)
         run: echo "git clone"
 
-      - name: Docker build 
+      - name: Docker build (simulasi)
         run: echo "docker build"
 
-      - name: Docker push 
+      - name: Docker push (simulasi)
         run: echo "docker push"
 
-      - name: Docker pull 
+      - name: Docker pull (simulasi)
         run: echo "docker pull"
 
-      - name: Docker run 
-        run: echo 'docker run'
+      - name: Docker run (simulasi)
+        run: echo "docker run"
