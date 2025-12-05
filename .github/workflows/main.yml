@@ -47,6 +47,6 @@ jobs:
             echo '--- Removing old container ---' &&
             docker rm ikan || true &&
 
-            echo '--- Running new container on port 9080 ---' &&
+            echo '--- Running new container on port 9090 ---' &&
             docker run -d --name ikan -p 9080:8080 ${{ secrets.DOCKER_USERNAME }}/ikan:latest
           "
