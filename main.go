@@ -40,6 +40,6 @@ func main() {
         `)
 	})
 
-	fmt.Println("🔥 Running on http://localhost:9080")
+	fmt.Println("🔥 Running on http://localhost:9090")
 	http.ListenAndServe(":8080", nil)
 }
