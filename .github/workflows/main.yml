@@ -40,8 +40,10 @@ jobs:
           ssh deploy "
             echo '--- Pulling latest Docker image ---' &&
             docker pull ${{ secrets.DOCKER_USERNAME }}/ikan:latest &&
+            "
       - name : Stop Container
         run: |
+          ssh deploy "
             echo '--- Stopping old container ---' &&
             docker stop ikan || true &&
 
